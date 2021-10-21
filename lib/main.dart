@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'description_place.dart';
+import 'review.dart';
 
 void main() => runApp(const MyApp());
 
@@ -24,10 +25,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Hello World!"),
         ),
-        body: DescriptionPlace(
-            namePlace: "🇫🇷 Polinesia",
-            rating: 4,
-            descriptionPlace: descriptionDummy),
+        body: const Review(
+          pathImage: "assets/images/Photo.jpeg",
+          name: "Sebastien Ballen",
+          details: "1 Review 7 Photos",
+          comment: "There is an amazing place in Sri Lanka",
+        ),
       ),
     );
   }
