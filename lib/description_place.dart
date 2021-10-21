@@ -1,10 +1,40 @@
 import 'package:flutter/material.dart';
 
 class DescriptionPlace extends StatelessWidget {
-  const DescriptionPlace({Key? key}) : super(key: key);
+  final String namePlace;
+  final int rating;
+  final String descriptionPlace;
+  const DescriptionPlace(
+      {Key? key,
+      required this.namePlace,
+      required this.rating,
+      required this.descriptionPlace})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final borderStar = Container(
+      margin: const EdgeInsets.only(
+        top: 323.0,
+        right: 3.0,
+      ),
+      child: const Icon(
+        Icons.star_border,
+        color: Color(0xFFF2C611),
+      ),
+    );
+
+    final halfStar = Container(
+      margin: const EdgeInsets.only(
+        top: 323.0,
+        right: 3.0,
+      ),
+      child: const Icon(
+        Icons.star_half,
+        color: Color(0xFFF2C611),
+      ),
+    );
+
     final star = Container(
       margin: const EdgeInsets.only(
         top: 323.0,
@@ -22,12 +52,12 @@ class DescriptionPlace extends StatelessWidget {
         left: 20.0,
         right: 20.0,
       ),
-      child: const Text(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis imperdiet diam, ut faucibus nisl mattis nec. Nam dictum vitae turpis ac tincidunt. Proin vel ligula at dolor rutrum congue. Mauris et rutrum lectus, in mollis tortor. Praesent non ex non mi luctus cursus. Maecenas tempor at eros laoreet tristique. Nam turpis orci, sagittis sit amet mollis sed, commodo id velit. Cras nec semper nibh.",
-        style: TextStyle(
-          fontSize: 12.0,
-        ),
-        textAlign: TextAlign.left,
+      child: Text(
+        descriptionPlace,
+        style: const TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF56575A)),
       ),
     );
 
@@ -39,9 +69,9 @@ class DescriptionPlace extends StatelessWidget {
             left: 20.0,
             right: 20.0,
           ),
-          child: const Text(
-            "Duwili Ella",
-            style: TextStyle(
+          child: Text(
+            namePlace,
+            style: const TextStyle(
               fontSize: 30.0,
               fontWeight: FontWeight.w900,
             ),
@@ -49,20 +79,16 @@ class DescriptionPlace extends StatelessWidget {
           ),
         ),
         Row(
-          children: <Widget>[star, star, star, star, star],
+          children: <Widget>[star, star, star, halfStar, borderStar],
         ),
       ],
     );
 
-    final decriptionContent = Container(
-      child: Column(
-        children: <Widget>[
-          placeTitle,
-          description,
-        ],
-      ),
+    return Column(
+      children: <Widget>[
+        placeTitle,
+        description,
+      ],
     );
-
-    return decriptionContent;
   }
 }
